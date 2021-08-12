@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import happy from "../gif/happy.webp";
-import hbd from "../gif/hbday.webp";
-import sad from "../gif/sad.webp";
+import wait from "../gif/wait.webp";
 
 const Giphy = ({ searchTerm }: { searchTerm: string }) => {
   const [error, setError] = useState(true);
@@ -10,7 +8,7 @@ const Giphy = ({ searchTerm }: { searchTerm: string }) => {
 
   // this is random key on internet V6AU97qCSCYVmbIC5UDppEiVM1xnuO9E
   // this is officially pubic key   dc6zaTOxFJmzC
-
+  //https://api.giphy.com/v1/gifs/translate?s=${searchTerm}&api_key=dc6zaTOxFJmzC&weirdness=1
   useEffect(() => {
     axios
       .get(
@@ -28,9 +26,7 @@ const Giphy = ({ searchTerm }: { searchTerm: string }) => {
       .catch((data) => {
         // console.log(data);
 
-        if (searchTerm == "bday") setImgUrl(String(hbd));
-        else if (searchTerm == "sad") setImgUrl(String(sad));
-        else if (searchTerm == "happy") setImgUrl(String(happy));
+        if (searchTerm == "wait") setImgUrl(String(wait));
         else setImgUrl("random");
       });
   }, []);
@@ -39,9 +35,9 @@ const Giphy = ({ searchTerm }: { searchTerm: string }) => {
       <div className="gif">
         {console.log(imgUrl + "ddd")}
         {error ? (
-          <img alt="Gif" src={imgUrl} />
+          <img alt="Gif" src={imgUrl} key={imgUrl} />
         ) : (
-          <img alt="Gif" src={imgUrl} />
+          <img alt="Gif" src={imgUrl} key={imgUrl} />
         )}
       </div>
     </>

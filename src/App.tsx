@@ -1,8 +1,7 @@
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Backcard from "./components/Backcard";
 import Footer from "./components/Footer";
 import About from "./components/About";
