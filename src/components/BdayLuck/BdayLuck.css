@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+.bcard {
+  background-color: #f8f9fa;
+  margin: 30px auto;
+  border-radius: 10px;
+  padding: 0 0 20px 0;
+  -webkit-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
+  -moz-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
+  box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
+}
+.smallcard {
+  background-color: #f8f9fa;
+  margin: 1rem 1rem 1rem 1rem;
+  border-radius: 10px;
+  padding: 0.5rem;
+  -webkit-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
+  -moz-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
+  box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
+}
