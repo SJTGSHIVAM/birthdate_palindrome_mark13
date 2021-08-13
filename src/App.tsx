@@ -2,10 +2,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Backcard from "./components/Backcard";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import BdayLuck from "./components/BdayLuck";
+import BdayPal from "./components/BdayPal";
 
 // https://api.giphy.com/v1/gifs/translate?s=bday&api_key=dc6zaTOxFJmzC&weirdness=1
 
@@ -15,8 +14,7 @@ function App() {
       {" "}
       <Navbar />
       <Switch>
-        <Route path="/" component={Backcard} exact />
-        <Route path="/bdayluck" component={BdayLuck} exact />
+        <Route path="/" component={BdayPal} exact />
         <Route path="/about" exact component={About} />
       </Switch>
       <Footer />
