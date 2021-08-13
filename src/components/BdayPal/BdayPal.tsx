@@ -5,10 +5,10 @@ import "./BdayPal.css";
 let ansDate = "xxx";
 const BdayPal = () => {
   const [bDate, setBDate] = useState<string>("");
-  const [answerAvailible, setAnswerAvailible] = useState(true);
+  const [answerAvailible, setAnswerAvailible] = useState(false);
   const [isPalindrome, setIsPalindrome] = useState(false);
   const [valBDate, setValBDate] = useState(true);
-  const [checkClicked, setcheckClicked] = useState(true);
+  const [checkClicked, setcheckClicked] = useState(false);
 
   const invalidateNumber = (e: number): boolean => isNaN(e) || e < 1;
   const invalidateBDate = (e: string): boolean => isNaN(Date.parse(e));
@@ -36,6 +36,7 @@ const BdayPal = () => {
       setValBDate(false);
       return;
     }
+    setcheckClicked(true);
     setTimeout(() => {
       datePalindrome(bDate);
     }, 5000);
@@ -43,6 +44,7 @@ const BdayPal = () => {
 
   const onDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const bday = String(event.target.value);
+    setcheckClicked(false);
     console.log(bday);
     if (invalidateBDate(bday)) {
       setValBDate(false);
@@ -92,7 +94,7 @@ const BdayPal = () => {
               <span>Hurray! Your Birthdate({ansDate}) is a Pallindrome.</span>
             )
           ) : (
-            <Giphy searchTerm={"wait"} key={"sad"} />
+            <Giphy searchTerm={"wait"} key={"wait"} />
           ))}
       </div>
     </>
