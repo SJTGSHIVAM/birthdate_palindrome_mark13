@@ -1,4 +1,5 @@
 import React from "react";
+import { FaGithub, FaMedium, FaLinkedinIn, FaBriefcase } from "react-icons/fa";
 import "./Footer.css";
 const Footer = () => {
   return (
@@ -6,22 +7,22 @@ const Footer = () => {
       <ul>
         <li className="footerLink">
           <a href="https://github.com/SJTGSHIVAM">
-            <i className="fab fa-github"></i>
+            <FaGithub />
           </a>
         </li>
         <li className="footerLink">
           <a href="https://sjtgshivam.medium.com">
-            <i className="fab fa-medium"></i>
+            <FaMedium />
           </a>
         </li>
         <li className="footerLink">
           <a href="https://www.linkedin.com/in/shivam-pandey-766524161">
-            <i className="fab fa-linkedin-in"></i>
+            <FaLinkedinIn />
           </a>
         </li>
         <li className="footerLink">
           <a href="https://sjtgshivam.netlify.app/">
-            <i className="fas fa-briefcase"></i>
+            <FaBriefcase />
           </a>
         </li>
       </ul>
