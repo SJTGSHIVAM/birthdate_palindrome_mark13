@@ -11,6 +11,7 @@ const BdayPal = () => {
   const [valBDate, setValBDate] = useState(true);
   const [checkClicked, setCheckClicked] = useState(false);
   const [ansDate, setAnsDtae] = useState("");
+  const [dayDiff, setDayDiff] = useState("");
 
   const invalidateNumber = (e: number): boolean => isNaN(e) || e < 1;
   const invalidateBDate = (e: string): boolean => isNaN(Date.parse(e));
@@ -22,7 +23,11 @@ const BdayPal = () => {
     let d = new Date(date);
     d.setDate(d.getDate() + i);
     // console.log(String(d));
-    return [String(d.getFullYear()), String(d.getMonth()), String(d.getDate())];
+    return [
+      String(d.getFullYear()),
+      String(d.getMonth() + 1),
+      String(d.getDate()),
+    ];
   };
   const checkPalindrome = (datestr: string) => {
     // console.log(datestr);
@@ -38,18 +43,61 @@ const BdayPal = () => {
     month: string,
     day: string
   ): boolean => {
+    let monthNo0 = month;
+    let dayNo0 = day;
+    let patYYYYMD = year + month + day;
+    let patDMYYYY = day + month + year;
+
+    if (parseInt(month, 10) < 10) month = "0" + month;
+
+    let patYYYYMMD = year + month + day;
+    let patDMMYYYY = day + month + year;
+    let patMMDYYYY = month + day + year;
+
+    if (parseInt(day, 10) < 10) day = "0" + day;
+    let patYYYYMDD = year + monthNo0 + day;
+    let patDDMYYYY = day + monthNo0 + year;
+    let patMDYYYY = monthNo0 + day + year;
+
+    if (parseInt(year, 10) < 10) year = "0" + year;
     let patYYYYMMDD = year + month + day;
     let patDDMMYYYY = day + month + year;
     let patMMDDYYYY = month + day + year;
-    if (checkPalindrome(patYYYYMMDD)) {
-      setAnsDtae(year + "-" + month + "-" + day);
+
+    if (checkPalindrome(patYYYYMMD)) {
+      setAnsDtae(year + "-" + month + "-" + dayNo0 + " Pattern(YYYY-MM-D)");
+      return true;
+    } else if (checkPalindrome(patMMDYYYY)) {
+      setAnsDtae(month + "-" + dayNo0 + "-" + year + " Pattern(MM-D-YYYY)");
+      return true;
+    } else if (checkPalindrome(patDMMYYYY)) {
+      setAnsDtae(dayNo0 + "-" + month + "-" + year + " Pattern(DD-MM-YYYY)");
+      return true;
+    } else if (checkPalindrome(patYYYYMDD)) {
+      setAnsDtae(year + "-" + monthNo0 + "-" + day + " Pattern(YYYY-M-DD)");
+      return true;
+    } else if (checkPalindrome(patDDMYYYY)) {
+      setAnsDtae(day + "-" + monthNo0 + "-" + year + " Pattern(DD-M-YYYY)");
+      return true;
+    } else if (checkPalindrome(patMDYYYY)) {
+      setAnsDtae(monthNo0 + "-" + day + "-" + year + " Pattern(M-DD-YYYY)");
+      return true;
+    } else if (checkPalindrome(patDMYYYY)) {
+      setAnsDtae(dayNo0 + "-" + monthNo0 + "-" + year + " Pattern(D-M-YYYY)");
+      return true;
+    } else if (checkPalindrome(patYYYYMD)) {
+      setAnsDtae(year + "-" + monthNo0 + "-" + dayNo0 + " Pattern(YYYY-M-D)");
       return true;
     } else if (checkPalindrome(patDDMMYYYY)) {
-      setAnsDtae(day + "-" + month + "-" + year);
-
+      setAnsDtae(day + "-" + month + "-" + year + " Pattern(DD-MM-YYYY)");
       return true;
     } else if (checkPalindrome(patMMDDYYYY)) {
-      setAnsDtae(month + "-" + day + "-" + year);
+      setAnsDtae(month + "-" + day + "-" + year + " Pattern(MM-DD-YYYY)");
+      console.log(month + "-" + day + "-" + year + " Pattern(MM-DD-YYYY)");
+      return true;
+    } else if (checkPalindrome(patYYYYMMDD)) {
+      setAnsDtae(year + "-" + month + "-" + day + " Pattern(YYYY-MM-DD)");
+      console.log(year + "-" + month + "-" + day + " Pattern(YYYY-MM-DD)");
       return true;
     }
 
@@ -57,13 +105,13 @@ const BdayPal = () => {
   };
 
   const findNearestPalindrome = (bday: string) => {
-    for (let i = 1; i < 3000; i = i + 1) {
+    let i = 1;
+    for (; i < 3000; i = i + 1) {
       let [yearf, monthf, dayf] = dateCounter(bday, i);
       let [yearb, monthb, dayb] = dateCounter(bday, -1 * i);
-      if (Number(monthf) > 10) monthf = "0" + monthf;
-      if (Number(monthb) > 10) monthb = "0" + monthb;
-      if (Number(dayf) > 10) dayf = "0" + dayf;
-      if (Number(dayb) > 10) dayb = "0" + dayb;
+
+      // console.log(yearb + "-" + monthb + "-" + dayb);
+
       // console.log(dateCounter(bday, -1 * i));
       if (checkPossibility(yearf, monthf, dayf)) {
         break;
@@ -76,6 +124,7 @@ const BdayPal = () => {
       //   checkPossibility(yearb, monthb, dayb)
       // );
     }
+    setDayDiff(String(i));
   };
 
   const datePalindrome = (bday: string) => {
@@ -93,10 +142,12 @@ const BdayPal = () => {
   };
 
   const checkPal = () => {
+    console.log(answerAvailible, checkClicked);
     if (invalidateBDate(bDate)) {
       setValBDate(false);
       return;
     }
+    // console.log(answerAvailible, checkClicked);
     if (!answerAvailible && !checkClicked) {
       setCheckClicked(true);
       // console.log(checkClicked, "-->", valBDate);
@@ -132,9 +183,20 @@ const BdayPal = () => {
           </h1>
         </header>
         <section className="instruction">
-          This app checks your birthdate in 4 formats yyyy-mm-dd, dd-mm-yyyy,
-          mm-dd-yy, m-dd-yyyy e.g. if your birthdate is 01 Aug 1995, then app
-          will check for 19950801, 01081995, 080195, 1081995
+          This app checks your birthdate in 11 formats which are:
+          <ul>
+            <li>YYYY-MM-D</li>
+            <li>MM-D-YYYY</li>
+            <li>DD-MM-YYYY</li>
+            <li>YYYY-M-DD</li>
+            <li>DD-M-YYYY</li>
+            <li>M-DD-YYYY</li>
+            <li>D-M-YYYY</li>
+            <li>YYYY-M-D</li>
+            <li>DD-MM-YYYY</li>
+            <li>MM-DD-YYYY</li>
+            <li>YYYY-MM-DD</li>
+          </ul>
         </section>
         <label>
           <section className="label">Enter your Birth Date</section>
@@ -142,6 +204,7 @@ const BdayPal = () => {
             type="date"
             onFocus={() => {
               setValBDate(false);
+              console.log("1");
               setAnswerAvailible(false);
               setCheckClicked(false);
             }}
@@ -161,9 +224,11 @@ const BdayPal = () => {
             !isPalindrome ? (
               <span>
                 Okay! Your Birthdate is not a Pallindrome.Nearest Palindrome is{" "}
-                {ansDate}
                 {ansDate} you missed it by{" "}
-                {new Date(bDate).getDate() - new Date(ansDate).getDate()} days.
+                {parseInt(dayDiff, 10) > 1
+                  ? dayDiff + " days"
+                  : dayDiff + " day"}
+                .
               </span>
             ) : (
               <span>Hurray! Your Birthdate({ansDate}) is a Pallindrome.</span>

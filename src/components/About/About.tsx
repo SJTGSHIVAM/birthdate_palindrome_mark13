@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { couldStartTrivia } from "typescript";
-
 import "./About.css";
 const About = () => {
   return (
