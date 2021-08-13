@@ -208,6 +208,12 @@ const BdayPal = () => {
               setAnswerAvailible(false);
               setCheckClicked(false);
             }}
+            onClick={() => {
+              setValBDate(false);
+              console.log("1");
+              setAnswerAvailible(false);
+              setCheckClicked(false);
+            }}
             onBlur={onDateChange}
             onChange={onDateChange}
           />
