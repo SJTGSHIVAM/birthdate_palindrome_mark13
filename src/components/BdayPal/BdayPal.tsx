@@ -37,6 +37,7 @@ const BdayPal = () => {
       return;
     }
     setcheckClicked(true);
+    console.log(checkClicked, "-->", valBDate);
     setTimeout(() => {
       datePalindrome(bDate);
     }, 5000);
@@ -74,7 +75,14 @@ const BdayPal = () => {
         </section>
         <label>
           <section className="label">Enter your Birth Date</section>
-          <input type="date" onFocus={() => {}} onBlur={onDateChange} />
+          <input
+            type="date"
+            onFocus={() => {
+              setValBDate(false);
+            }}
+            onBlur={onDateChange}
+            onChange={onDateChange}
+          />
         </label>
 
         {!valBDate && (
