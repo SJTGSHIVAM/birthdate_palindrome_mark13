@@ -153,7 +153,7 @@ const BdayPal = () => {
       // console.log(checkClicked, "-->", valBDate);
       timeoutResult = setTimeout(() => {
         datePalindrome(bDate);
-      }, 10);
+      }, 6300);
     }
   };
 
