@@ -2,7 +2,7 @@ import { useState } from "react";
 import Giphy from "../Giphy";
 import PrivacyNotice from "../PrivacyNotice";
 import "./BdayPal.css";
-let ansDate = "xxx";
+
 let timeoutResult: ReturnType<typeof setTimeout>;
 const BdayPal = () => {
   const [bDate, setBDate] = useState<string>("");
@@ -10,10 +10,23 @@ const BdayPal = () => {
   const [isPalindrome, setIsPalindrome] = useState(false);
   const [valBDate, setValBDate] = useState(true);
   const [checkClicked, setCheckClicked] = useState(false);
+  const [ansDate, setAnsDtae] = useState("");
 
   const invalidateNumber = (e: number): boolean => isNaN(e) || e < 1;
   const invalidateBDate = (e: string): boolean => isNaN(Date.parse(e));
+  const dateBreak = (date: string): string[] => {
+    const dateArr = date.split("-");
+    return [dateArr[0], dateArr[1], dateArr[2]];
+  };
+  const dateCounter = (date: string, i: number): string[] => {
+    let d = new Date(date);
+    d.setDate(d.getDate() + i);
+    // console.log(String(d));
+    return [String(d.getFullYear()), String(d.getMonth()), String(d.getDate())];
+  };
   const checkPalindrome = (datestr: string) => {
+    // console.log(datestr);
+
     const mid = Math.floor(datestr.length / 2);
     for (let i = 0; i < mid; i++) {
       if (datestr[i] != datestr[datestr.length - 1 - i]) return false;
@@ -29,47 +42,67 @@ const BdayPal = () => {
     let patDDMMYYYY = day + month + year;
     let patMMDDYYYY = month + day + year;
     if (checkPalindrome(patYYYYMMDD)) {
-      ansDate = patYYYYMMDD;
+      setAnsDtae(year + "-" + month + "-" + day);
       return true;
     } else if (checkPalindrome(patDDMMYYYY)) {
-      ansDate = patDDMMYYYY;
+      setAnsDtae(day + "-" + month + "-" + year);
+
       return true;
     } else if (checkPalindrome(patMMDDYYYY)) {
-      ansDate = patMMDDYYYY;
+      setAnsDtae(month + "-" + day + "-" + year);
       return true;
     }
 
     return false;
   };
 
-  const findNearestPalindrome = (bday: string) => {};
+  const findNearestPalindrome = (bday: string) => {
+    for (let i = 1; i < 3000; i = i + 1) {
+      let [yearf, monthf, dayf] = dateCounter(bday, i);
+      let [yearb, monthb, dayb] = dateCounter(bday, -1 * i);
+      if (Number(monthf) > 10) monthf = "0" + monthf;
+      if (Number(monthb) > 10) monthb = "0" + monthb;
+      if (Number(dayf) > 10) dayf = "0" + dayf;
+      if (Number(dayb) > 10) dayb = "0" + dayb;
+      // console.log(dateCounter(bday, -1 * i));
+      if (checkPossibility(yearf, monthf, dayf)) {
+        break;
+      } else if (checkPossibility(yearb, monthb, dayb)) {
+        break;
+      }
+      // console.log(
+      //   i,
+      //   checkPossibility(yearf, monthf, dayf),
+      //   checkPossibility(yearb, monthb, dayb)
+      // );
+    }
+  };
 
   const datePalindrome = (bday: string) => {
-    const dateArr = bday.split("-");
-    const year = dateArr[0];
-    const month = dateArr[1];
-    const day = dateArr[2];
-
-    if (checkPossibility(year, month, day)) setIsPalindrome(true);
-    else {
+    let [year, month, day] = dateBreak(bday);
+    if (checkPossibility(year, month, day)) {
+      setIsPalindrome(true);
+      setAnswerAvailible(true);
+      return true;
+    } else {
       setIsPalindrome(false);
       findNearestPalindrome(bday);
+      setAnswerAvailible(true);
+      return false;
     }
-    setAnswerAvailible(true);
   };
 
   const checkPal = () => {
-    clearTimeout(timeoutResult);
     if (invalidateBDate(bDate)) {
       setValBDate(false);
       return;
     }
-    if (!answerAvailible) {
+    if (!answerAvailible && !checkClicked) {
       setCheckClicked(true);
-      console.log(checkClicked, "-->", valBDate);
+      // console.log(checkClicked, "-->", valBDate);
       timeoutResult = setTimeout(() => {
         datePalindrome(bDate);
-      }, 8000);
+      }, 10);
     }
   };
 
@@ -127,8 +160,10 @@ const BdayPal = () => {
           (answerAvailible ? (
             !isPalindrome ? (
               <span>
-                Okay! Your Birthday is not a Pallindrome.Nearest Palindrome is{" "}
-                {ansDate} you missed it by {} days.
+                Okay! Your Birthdate is not a Pallindrome.Nearest Palindrome is{" "}
+                {ansDate}
+                {ansDate} you missed it by{" "}
+                {new Date(bDate).getDate() - new Date(ansDate).getDate()} days.
               </span>
             ) : (
               <span>Hurray! Your Birthdate({ansDate}) is a Pallindrome.</span>
