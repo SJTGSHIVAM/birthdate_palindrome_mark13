@@ -172,7 +172,7 @@ const BdayPal = () => {
   };
 
   return (
-    <>
+    <div className="main-section">
       <PrivacyNotice />
 
       <div className="bcard">
@@ -232,7 +232,7 @@ const BdayPal = () => {
             <Giphy searchTerm={"wait"} key={"wait"} />
           ))}
       </div>
-    </>
+    </div>
   );
 };
 export default BdayPal;
