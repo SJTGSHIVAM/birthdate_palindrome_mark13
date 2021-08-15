@@ -1,0 +1,23 @@
+footer {
+  background-color: var(--secon);
+  /* margin-top */
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.footerLink {
+  padding: 1rem;
+}
+
+.icon {
+  color: black;
+  padding: 1rem;
+}
+
+.legacyText {
+  text-align: center;
+}

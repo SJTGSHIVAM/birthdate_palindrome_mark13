@@ -1,20 +1,41 @@
 * {
   box-sizing: border-box;
 }
-.bcard {
-  background-color: #f8f9fa;
-  margin: 30px auto;
-  border-radius: 10px;
-  padding: 0 0 20px 0;
-  -webkit-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
-  -moz-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
-  box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
+
+.head {
+  text-align: center;
+  color: var(--prime);
+  font-family: lato;
 }
-.smallcard {
+
+.bcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65vw;
+  padding: 1rem;
   background-color: #f8f9fa;
-  margin: 1rem 1rem 1rem 1rem;
+  margin: auto;
   border-radius: 10px;
+  /* padding: 0 0 20px 0; */
+}
+
+ul {
+  color: #1693a3;
+  text-align: center;
+}
+
+.label {
+  color: var(--prime);
+}
+
+.checkBtn {
+  color: white;
+  background-color: var(--secon);
+  margin: 1rem 1rem 1rem 1rem;
+  border-radius: 2px;
   padding: 0.5rem;
+  border-color: black;
   -webkit-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
   -moz-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
   box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);

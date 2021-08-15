@@ -16,6 +16,17 @@ const About = () => {
         repudiandae obcaecati adipisci suscipit excepturi, nesciunt architecto
         delectus voluptatum ipsa itaque explicabo ullam quae sapiente quam,
         inventore reprehenderit ea?
+        <li>YYYY-MM-D</li>
+        <li>MM-D-YYYY</li>
+        <li>DD-MM-YYYY</li>
+        <li>YYYY-M-DD</li>
+        <li>DD-M-YYYY</li>
+        <li>M-DD-YYYY</li>
+        <li>D-M-YYYY</li>
+        <li>YYYY-M-D</li>
+        <li>DD-MM-YYYY</li>
+        <li>MM-DD-YYYY</li>
+        <li>YYYY-MM-DD</li>
       </section>
     </div>
   );

@@ -6,22 +6,25 @@ const Footer = () => {
     <footer>
       <ul>
         <li className="footerLink">
-          <a href="https://github.com/SJTGSHIVAM">
+          <a className="icon" href="https://github.com/SJTGSHIVAM">
             <FaGithub />
           </a>
         </li>
         <li className="footerLink">
-          <a href="https://sjtgshivam.medium.com">
+          <a className="icon" href="https://sjtgshivam.medium.com">
             <FaMedium />
           </a>
         </li>
         <li className="footerLink">
-          <a href="https://www.linkedin.com/in/shivam-pandey-766524161">
+          <a
+            className="icon"
+            href="https://www.linkedin.com/in/shivam-pandey-766524161"
+          >
             <FaLinkedinIn />
           </a>
         </li>
         <li className="footerLink">
-          <a href="https://sjtgshivam.netlify.app/">
+          <a className="icon" href="https://sjtgshivam.netlify.app/">
             <FaBriefcase />
           </a>
         </li>

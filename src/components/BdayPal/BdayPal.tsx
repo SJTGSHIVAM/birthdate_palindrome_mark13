@@ -177,26 +177,13 @@ const BdayPal = () => {
 
       <div className="bcard">
         <header className="head">
-          <h1>
+          <h2>
             Enter your birthdate and we will tell you if your birthdate is a
             palindrome
-          </h1>
+          </h2>
         </header>
         <section className="instruction">
           This app checks your birthdate in 11 formats which are:
-          <ul>
-            <li>YYYY-MM-D</li>
-            <li>MM-D-YYYY</li>
-            <li>DD-MM-YYYY</li>
-            <li>YYYY-M-DD</li>
-            <li>DD-M-YYYY</li>
-            <li>M-DD-YYYY</li>
-            <li>D-M-YYYY</li>
-            <li>YYYY-M-D</li>
-            <li>DD-MM-YYYY</li>
-            <li>MM-DD-YYYY</li>
-            <li>YYYY-MM-DD</li>
-          </ul>
         </section>
         <label>
           <section className="label">Enter your Birth Date</section>
@@ -223,7 +210,9 @@ const BdayPal = () => {
           <div>Make sure to fill a valid date and then click the button.</div>
         )}
 
-        <button onClick={checkPal}>CHECK</button>
+        <button className="checkBtn" onClick={checkPal}>
+          CHECK
+        </button>
 
         {checkClicked &&
           (answerAvailible ? (
