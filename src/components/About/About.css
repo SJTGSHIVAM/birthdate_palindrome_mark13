@@ -10,3 +10,6 @@
   -moz-box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
   box-shadow: 5px 5px 13px 0px rgba(50, 50, 50, 0.39);
 }
+li {
+  color: black;
+}

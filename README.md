@@ -1,6 +1,28 @@
-# Getting Started with Create React App
+# Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a web app that checks if your Birthdate is a Palindrome or not. Built with ReactJS.
+
+# Live Link :
+
+https://bdaypalindrome.netlify.app
+
+# Salient features are:
+
+- Built with ReactJS
+- An input field to take user birth date
+- Checks palindrome on these formats:
+  - YYYY-MM-D
+  - MM-D-YYYY
+  - DD-MM-YYYY
+  - YYYY-M-DD
+  - DD-M-YYYY
+  - M-DD-YYYY
+  - D-M-YYYY
+  - YYYY-M-D
+  - DD-MM-YYYY
+  - MM-DD-YYYY
+  - YYYY-MM-DD
+- Shows the output whether the user was born on a palindrome date or not
 
 ## Available Scripts
 
