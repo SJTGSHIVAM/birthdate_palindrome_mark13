@@ -11,7 +11,7 @@ const About = () => {
           This is a web app that checks if your Birthdate is a Palindrome or
           not. Built with ReactJS.
         </p>
-        <h1 id="live-link-">Live Link :</h1>
+        <h1 id="live-link-">Github Link :</h1>
         <p>
           <a href="https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13">
             https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13
