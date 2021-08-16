@@ -3,21 +3,21 @@ const About = () => {
   return (
     <div className="bcard">
       <header className="head">
-        <h1>Is your Bday lucky?</h1>
+        <h1>About</h1>
       </header>
       <section className="about">
-        <h1 id="description">Description</h1>
+        <h2 id="description">Description</h2>
         <p>
           This is a web app that checks if your Birthdate is a Palindrome or
           not. Built with ReactJS.
         </p>
-        <h1 id="live-link-">Github Link :</h1>
+        <h2 id="live-link-">Github Link :</h2>
         <p>
           <a href="https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13">
             https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13
           </a>
         </p>
-        <h1 id="salient-features-are-">Salient features are:</h1>
+        <h2 id="salient-features-are-">Salient features are:</h2>
         <ul>
           <li>Built with ReactJS</li>
           <li>An input field to take user birth date</li>
