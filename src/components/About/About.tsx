@@ -13,8 +13,8 @@ const About = () => {
         </p>
         <h1 id="live-link-">Live Link :</h1>
         <p>
-          <a href="https://bdaypalindrome.netlify.app">
-            https://bdaypalindrome.netlify.app
+          <a href="https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13">
+            https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13
           </a>
         </p>
         <h1 id="salient-features-are-">Salient features are:</h1>
