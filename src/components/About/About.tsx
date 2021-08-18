@@ -14,7 +14,7 @@ const About = () => {
         <h2 id="live-link-">Github Link :</h2>
         <p>
           <a href="https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13">
-            https://github.com/SJTGSHIVAM/birthdate_palindrome_mark13
+            Click here
           </a>
         </p>
         <h2 id="salient-features-are-">Salient features are:</h2>
@@ -23,7 +23,7 @@ const About = () => {
           <li>An input field to take user birth date</li>
           <li>
             Checks palindrome on these formats:
-            <ul>
+            <ol>
               <li>YYYY-MM-D</li>
               <li>MM-D-YYYY</li>
               <li>DD-MM-YYYY</li>
@@ -35,7 +35,7 @@ const About = () => {
               <li>DD-MM-YYYY</li>
               <li>MM-DD-YYYY</li>
               <li>YYYY-MM-DD</li>
-            </ul>
+            </ol>
           </li>
           <li>
             Shows the output whether the user was born on a palindrome date or
