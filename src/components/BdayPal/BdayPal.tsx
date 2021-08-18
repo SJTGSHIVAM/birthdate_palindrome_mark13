@@ -64,14 +64,16 @@ const BdayPal = () => {
     let patDDMMYYYY = day + month + year;
     let patMMDDYYYY = month + day + year;
 
-    if (checkPalindrome(patYYYYMMD)) {
-      setAnsDtae(year + "-" + month + "-" + dayNo0 + " Pattern(YYYY-MM-D)");
+    if (checkPalindrome(patYYYYMMDD)) {
+      setAnsDtae(year + "-" + month + "-" + day + " Pattern(YYYY-MM-DD)");
+      console.log(year + "-" + month + "-" + day + " Pattern(YYYY-MM-DD)");
       return true;
-    } else if (checkPalindrome(patMMDYYYY)) {
-      setAnsDtae(month + "-" + dayNo0 + "-" + year + " Pattern(MM-D-YYYY)");
+    } else if (checkPalindrome(patMMDDYYYY)) {
+      setAnsDtae(month + "-" + day + "-" + year + " Pattern(MM-DD-YYYY)");
+      console.log(month + "-" + day + "-" + year + " Pattern(MM-DD-YYYY)");
       return true;
-    } else if (checkPalindrome(patDMMYYYY)) {
-      setAnsDtae(dayNo0 + "-" + month + "-" + year + " Pattern(DD-MM-YYYY)");
+    } else if (checkPalindrome(patDDMMYYYY)) {
+      setAnsDtae(day + "-" + month + "-" + year + " Pattern(DD-MM-YYYY)");
       return true;
     } else if (checkPalindrome(patYYYYMDD)) {
       setAnsDtae(year + "-" + monthNo0 + "-" + day + " Pattern(YYYY-M-DD)");
@@ -88,16 +90,14 @@ const BdayPal = () => {
     } else if (checkPalindrome(patYYYYMD)) {
       setAnsDtae(year + "-" + monthNo0 + "-" + dayNo0 + " Pattern(YYYY-M-D)");
       return true;
-    } else if (checkPalindrome(patDDMMYYYY)) {
-      setAnsDtae(day + "-" + month + "-" + year + " Pattern(DD-MM-YYYY)");
+    } else if (checkPalindrome(patDMMYYYY)) {
+      setAnsDtae(dayNo0 + "-" + month + "-" + year + " Pattern(DD-MM-YYYY)");
       return true;
-    } else if (checkPalindrome(patMMDDYYYY)) {
-      setAnsDtae(month + "-" + day + "-" + year + " Pattern(MM-DD-YYYY)");
-      console.log(month + "-" + day + "-" + year + " Pattern(MM-DD-YYYY)");
+    } else if (checkPalindrome(patMMDYYYY)) {
+      setAnsDtae(month + "-" + dayNo0 + "-" + year + " Pattern(MM-D-YYYY)");
       return true;
-    } else if (checkPalindrome(patYYYYMMDD)) {
-      setAnsDtae(year + "-" + month + "-" + day + " Pattern(YYYY-MM-DD)");
-      console.log(year + "-" + month + "-" + day + " Pattern(YYYY-MM-DD)");
+    } else if (checkPalindrome(patYYYYMMD)) {
+      setAnsDtae(year + "-" + month + "-" + dayNo0 + " Pattern(YYYY-MM-D)");
       return true;
     }
 
